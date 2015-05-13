@@ -22,8 +22,9 @@ $.extend(yii.validation, (function ($) {
             }
 
             var dateValue = (new Date(value)).getTime();
-            var dateCompareValue = (new Date(compareValue)).getTime();
-            
+            var dateCompareValue = (new Date(compareValue)).getTime() + options.offset * 1000;
+            // TODO offset to ===
+
             switch (options.operator) {
                 case '==':
                     valid = dateValue == dateCompareValue;
