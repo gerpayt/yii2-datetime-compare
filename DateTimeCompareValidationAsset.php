@@ -18,6 +18,6 @@ class DateTimeCompareValidationAsset extends AssetBundle
     ];
     public $depends = [
         'yii\validators\ValidationAsset',
-        'common\assets\FontAwesomeAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }
