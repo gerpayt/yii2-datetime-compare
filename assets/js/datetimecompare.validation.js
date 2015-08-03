@@ -24,13 +24,13 @@ $.extend(yii.validation, (function ($) {
             var dateAndTime1 = value.split(' ');
             var dateValue = (new Date(dateAndTime1[0])).getTime();
             var hourMinuteSecond1 = dateAndTime1[1].split(':');
-            dateValue = dateValue + (hourMinuteSecond1[0] * 3600 + hourMinuteSecond1[1] * 60 + hourMinuteSecond1[2]) * 1000;
+            dateValue = dateValue + (parseInt(hourMinuteSecond1[0]) * 3600 + parseInt(hourMinuteSecond1[1]) * 60 + parseInt(hourMinuteSecond1[2])) * 1000;
 
             var dateAndTime2 = compareValue.split(' ');
-            var dateCompareValue = (new Date(dateAndTime2[0])).getTime() + options.offset * 1000;
+            var dateCompareValue = (new Date(dateAndTime2[0])).getTime();
             var hourMinuteSecond2 = dateAndTime2[1].split(':');
-            dateCompareValue = dateCompareValue + (hourMinuteSecond2[0] * 3600 + hourMinuteSecond2[1] * 60 + hourMinuteSecond2[2]) * 1000;
-            // TODO offset to ===
+            dateCompareValue = dateCompareValue + (parseInt(hourMinuteSecond2[0]) * 3600 + parseInt(hourMinuteSecond2[1]) * 60 + parseInt(hourMinuteSecond2[2])+ options.offset) * 1000;
+
 
             switch (options.operator) {
                 case '==':
